@@ -65,10 +65,28 @@ extension OnboardingView{
     
     private var welcomeSection: some View {
         VStack(spacing: 40) {
+            Spacer()
             Image(systemName: "globe.europe.africa.fill")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 180, height: 180)
+            
+            Text("Welcome to the World.")
+                .font(.system(size: 25, weight: .bold, design: .rounded))
+                .overlay (
+                    Capsule(style: .continuous)
+                        .frame(height: 3)
+                        .offset(y: 3)
+                    , alignment: .bottom
+                )
+            
+            Text("We're glad to have you. We're excited that you're joining our team.")
+                .font(.system(size: 20, weight: .medium, design: .rounded))
+
+            Spacer()
+            Spacer()
         }
+        .multilineTextAlignment(.center)
+        .padding()
     }
 }
