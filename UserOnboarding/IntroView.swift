@@ -10,9 +10,10 @@
 import SwiftUI
 
 struct IntroView: View {
+    @AppStorage("sign_in") var currentUserSignedIn: Bool = false
+    
     var body: some View {
         
-        VStack {
             // background
             ZStack {
                 LinearGradient(
@@ -20,7 +21,12 @@ struct IntroView: View {
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing)
                 .ignoresSafeArea()
-            }
+        
+                if currentUserSignedIn{
+                    Text("Profile")
+                } else {
+                    Text("Onboarding")
+                }
         }
     }
 }
