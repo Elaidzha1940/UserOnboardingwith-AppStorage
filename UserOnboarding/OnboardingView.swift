@@ -24,6 +24,14 @@ struct OnboardingView: View {
         
         ZStack {
             // content
+            ZStack {
+                switch onboardingState {
+                case 0:
+                    welcomeSection
+                default: Rectangle()
+                    
+                }
+            }
             
             // buttons
             VStack {
@@ -53,5 +61,14 @@ extension OnboardingView{
             .onTapGesture {
                 
             }
+    }
+    
+    private var welcomeSection: some View {
+        VStack(spacing: 40) {
+            Image(systemName: "globe.europe.africa.fill")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 180, height: 180)
+        }
     }
 }
