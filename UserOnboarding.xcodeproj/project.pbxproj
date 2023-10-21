@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E4E12EC32AE40E5200E1977D /* UserOnboardingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E12EC22AE40E5200E1977D /* UserOnboardingApp.swift */; };
-		E4E12EC52AE40E5200E1977D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E12EC42AE40E5200E1977D /* ContentView.swift */; };
+		E4E12EC52AE40E5200E1977D /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E12EC42AE40E5200E1977D /* IntroView.swift */; };
 		E4E12EC72AE40E5300E1977D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E12EC62AE40E5300E1977D /* Assets.xcassets */; };
 		E4E12ECA2AE40E5300E1977D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E12EC92AE40E5300E1977D /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		E4E12EBF2AE40E5200E1977D /* UserOnboarding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserOnboarding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E12EC22AE40E5200E1977D /* UserOnboardingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingApp.swift; sourceTree = "<group>"; };
-		E4E12EC42AE40E5200E1977D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E4E12EC42AE40E5200E1977D /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		E4E12EC62AE40E5300E1977D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4E12EC92AE40E5300E1977D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				E4E12EC22AE40E5200E1977D /* UserOnboardingApp.swift */,
-				E4E12EC42AE40E5200E1977D /* ContentView.swift */,
+				E4E12EC42AE40E5200E1977D /* IntroView.swift */,
 				E4E12EC62AE40E5300E1977D /* Assets.xcassets */,
 				E4E12EC82AE40E5300E1977D /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4E12EC52AE40E5200E1977D /* ContentView.swift in Sources */,
+				E4E12EC52AE40E5200E1977D /* IntroView.swift in Sources */,
 				E4E12EC32AE40E5200E1977D /* UserOnboardingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
