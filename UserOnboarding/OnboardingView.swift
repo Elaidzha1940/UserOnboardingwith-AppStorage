@@ -19,7 +19,7 @@ struct OnboardingView: View {
      3 - Add Gender
      */
     
-    @State var onboardingState: Int = 1
+    @State var onboardingState: Int = 2
     @State var name: String = ""
     @State var age: Double = 50
     
@@ -124,7 +124,13 @@ extension OnboardingView{
             Text("What's your age?")
                 .font(.system(size: 25, weight: .bold, design: .rounded))
         
-            Slider(value: <#T##Binding<BinaryFloatingPoint>#>, in: <#T##ClosedRange<BinaryFloatingPoint>#>)
+            Text("\(String(format: "%.0f", age))")
+                .font(.system(size: 25, weight: .bold, design: .rounded))
+                .foregroundColor(.black)
+            
+            Slider(value: $age, in: 18...100, step: 1)
+                .accentColor(.black)
+            
             Spacer()
             Spacer()
         }
