@@ -19,7 +19,7 @@ struct OnboardingView: View {
      3 - Add Gender
      */
     
-    @State var onboardingState: Int = 0
+    @State var onboardingState: Int = 1
     var body: some View {
         
         ZStack {
@@ -28,6 +28,8 @@ struct OnboardingView: View {
                 switch onboardingState {
                 case 0:
                     welcomeSection
+                case 1:
+                    addNameSection
                 default: Rectangle()
                     
                 }
@@ -82,7 +84,21 @@ extension OnboardingView{
             
             Text("We're glad to have you. We're excited that you're joining our team.")
                 .font(.system(size: 20, weight: .medium, design: .rounded))
-
+            
+            Spacer()
+            Spacer()
+        }
+        .multilineTextAlignment(.center)
+        .padding()
+    }
+    
+    private var addNameSection: some View {
+        VStack(spacing: 40) {
+            Spacer()
+            
+            Text("What's your name?")
+                .font(.system(size: 25, weight: .bold, design: .rounded))
+            
             Spacer()
             Spacer()
         }
