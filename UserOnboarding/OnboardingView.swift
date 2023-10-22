@@ -149,12 +149,12 @@ extension OnboardingView{
             
             Picker(selection: $gender,
                    label:
-                    Text("Select a gender")
+                    Text(gender.count > 1 ? gender : "Select a gender")
                    .font(.system(size: 20, weight: .bold, design: .rounded))
-                   .foregroundColor(.black)
+                   .foregroundColor(.red)
                    .frame(height: 50)
                    .frame(maxWidth: .infinity)
-                   .background(Color.black)
+                   .background(Color.brown)
                    .cornerRadius(15)
                    ,
                    content: {
