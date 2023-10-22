@@ -20,6 +20,9 @@ struct OnboardingView: View {
      */
     
     @State var onboardingState: Int = 0
+    let transition: AnyTransition = .asymmetric(
+        insertion: .move(edge: .trailing),
+        removal: .move(edge: .leading))
     
     @State var name: String = ""
     @State var age: Double = 50
@@ -33,12 +36,16 @@ struct OnboardingView: View {
                 switch onboardingState {
                 case 0:
                     welcomeSection
+                        .transition(transition)
                 case 1:
                     addNameSection
+                        .transition(transition)
                 case 2:
                     addAgeSection
+                        .transition(transition)
                 case 3:
                     addGenderSection
+                        .transition(transition)
                 default: Rectangle()
                         .foregroundColor(.red)
                     
@@ -67,7 +74,7 @@ extension OnboardingView {
                 onboardingState == 3 ? "Finish" : "Next")
         .font(.system(size: 20, weight: .bold, design: .rounded))
         .foregroundColor(.white)
-        .frame(height: 50)
+        .frame(height: 55)
         .frame(maxWidth: .infinity)
         .background(Color.black)
         .cornerRadius(15)
@@ -113,7 +120,7 @@ extension OnboardingView {
             
             TextField("Your name here...", text: $name)
                 .font(.system(size: 20, weight: .bold, design: .rounded))
-                .frame(height: 50)
+                .frame(height: 55)
                 .padding(.horizontal)
                 .background(Color.black)
                 .cornerRadius(15)
@@ -156,7 +163,7 @@ extension OnboardingView {
                     Text("Select a gender")
                 .font(.system(size: 20, weight: .bold, design: .rounded))
                 .foregroundColor(.red)
-                .frame(height: 50)
+                .frame(height: 55)
                 .frame(maxWidth: .infinity)
                 .background(Color.black)
                 .cornerRadius(15)
