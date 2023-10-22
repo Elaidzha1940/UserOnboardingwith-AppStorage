@@ -20,9 +20,10 @@ struct OnboardingView: View {
      */
     
     @State var onboardingState: Int = 3
+    
     @State var name: String = ""
     @State var age: Double = 50
-    @State var gender: String = "Male"
+    @State var gender: String = ""
     
     var body: some View {
         
@@ -149,13 +150,13 @@ extension OnboardingView{
             
             Picker(selection: $gender,
                    label:
-                    Text("Select a gender")
-                .font(.system(size: 20, weight: .bold, design: .rounded))
-                .foregroundColor(.red)
-                .frame(height: 50)
-                .frame(maxWidth: .infinity)
-                .background(Color.black)
-                .cornerRadius(15)
+                Text("Select a gender")
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .foregroundColor(.red)
+                    .frame(height: 50)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.black)
+                    .cornerRadius(15)
                    ,
                    content: {
                 Text("Male").tag("Male")
@@ -163,11 +164,17 @@ extension OnboardingView{
                 Text("Non-Binary").tag("Non-Binary")
                 
             })
-            //.pickerStyle(MenuPickerStyle())
+           // .pickerStyle(<#_#>)
             
             Spacer()
             Spacer()
         }
         .padding(30)
     }
+}
+
+// MARK: FUNCTIONS
+extension OnboardingView {
+    
+      
 }
