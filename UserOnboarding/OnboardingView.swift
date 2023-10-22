@@ -62,7 +62,7 @@ struct OnboardingView: View {
 extension OnboardingView {
     
     private var buttomButton: some View {
-        Text("Sign in")
+        Text(onboardingState == 0 ? "Sign Up" : == 3 ? "Finish" : "Next")
             .font(.system(size: 20, weight: .bold, design: .rounded))
             .foregroundColor(.white)
             .frame(height: 50)
@@ -112,7 +112,7 @@ extension OnboardingView {
                 .font(.system(size: 20, weight: .bold, design: .rounded))
                 .frame(height: 50)
                 .padding(.horizontal)
-                .background(Color.red)
+                .background(Color.white)
                 .cornerRadius(15)
             
             Spacer()
@@ -177,6 +177,8 @@ extension OnboardingView {
 extension OnboardingView {
     
     func handleButtonPressed() {
-        
+        withAnimation {
+            onboardingState += 1
+        }
     }
 }
