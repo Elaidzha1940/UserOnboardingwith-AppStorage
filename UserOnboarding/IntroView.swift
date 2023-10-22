@@ -17,7 +17,7 @@ struct IntroView: View {
             // background
             ZStack {
                 LinearGradient(
-                    colors: [Color.white, Color.black],
+                    colors: [Color.black, Color.white],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing)
                 .ignoresSafeArea()
@@ -25,7 +25,7 @@ struct IntroView: View {
                 if currentUserSignedIn{
                     Text("Profile")
                 } else {
-                    Text("Onboarding")
+                    OnboardingView()
                 }
         }
     }
