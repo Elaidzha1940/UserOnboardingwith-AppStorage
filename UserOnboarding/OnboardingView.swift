@@ -40,6 +40,7 @@ struct OnboardingView: View {
                 case 3:
                     addGenderSection
                 default: Rectangle()
+                        .foregroundColor(.red)
                     
                 }
             }
@@ -62,16 +63,18 @@ struct OnboardingView: View {
 extension OnboardingView {
     
     private var buttomButton: some View {
-        Text(onboardingState == 0 ? "Sign Up" : == 3 ? "Finish" : "Next")
-            .font(.system(size: 20, weight: .bold, design: .rounded))
-            .foregroundColor(.white)
-            .frame(height: 50)
-            .frame(maxWidth: .infinity)
-            .background(Color.black)
-            .cornerRadius(15)
-            .onTapGesture {
-                handleButtonPressed()
-            }
+        Text(onboardingState == 0 ? "Sign Up" :
+                onboardingState == 3 ? "Finish" : "Next")
+        .font(.system(size: 20, weight: .bold, design: .rounded))
+        .foregroundColor(.white)
+        .frame(height: 50)
+        .frame(maxWidth: .infinity)
+        .background(Color.black)
+        .cornerRadius(15)
+        //.animation(nil)
+        .onTapGesture {
+            handleButtonPressed()
+        }
     }
     
     private var welcomeSection: some View {
@@ -150,13 +153,13 @@ extension OnboardingView {
             
             Picker(selection: $gender,
                    label:
-                Text("Select a gender")
-                    .font(.system(size: 20, weight: .bold, design: .rounded))
-                    .foregroundColor(.red)
-                    .frame(height: 50)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.black)
-                    .cornerRadius(15)
+                    Text("Select a gender")
+                .font(.system(size: 20, weight: .bold, design: .rounded))
+                .foregroundColor(.red)
+                .frame(height: 50)
+                .frame(maxWidth: .infinity)
+                .background(Color.black)
+                .cornerRadius(15)
                    ,
                    content: {
                 Text("Male").tag("Male")
@@ -164,7 +167,7 @@ extension OnboardingView {
                 Text("Non-Binary").tag("Non-Binary")
                 
             })
-           // .pickerStyle(<#_#>)
+            // .pickerStyle(<#_#>)
             
             Spacer()
             Spacer()
@@ -175,10 +178,15 @@ extension OnboardingView {
 
 // MARK: FUNCTIONS
 extension OnboardingView {
-    
+
     func handleButtonPressed() {
-        withAnimation {
-            onboardingState += 1
+        
+        if onboardingState == 3 {
+            // sign in
+        } else {
+            withAnimation(.spring()) {
+                onboardingState += 1
+            }
         }
     }
 }
