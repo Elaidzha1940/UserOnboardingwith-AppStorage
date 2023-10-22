@@ -59,7 +59,7 @@ struct OnboardingView: View {
 }
 
 // MARK: COMPONENTS
-extension OnboardingView{
+extension OnboardingView {
     
     private var buttomButton: some View {
         Text("Sign in")
@@ -70,7 +70,7 @@ extension OnboardingView{
             .background(Color.black)
             .cornerRadius(15)
             .onTapGesture {
-                
+                handleButtonPressed()
             }
     }
     
@@ -176,5 +176,7 @@ extension OnboardingView{
 // MARK: FUNCTIONS
 extension OnboardingView {
     
-      
+    func handleButtonPressed() {
+        
+    }
 }
