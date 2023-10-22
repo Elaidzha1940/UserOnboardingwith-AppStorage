@@ -20,6 +20,9 @@ struct OnboardingView: View {
      */
     
     @State var onboardingState: Int = 1
+    @State var name: String = ""
+    @State var age: Double = 50
+    
     var body: some View {
         
         ZStack {
@@ -30,6 +33,8 @@ struct OnboardingView: View {
                     welcomeSection
                 case 1:
                     addNameSection
+                case 2:
+                    addAgeSection
                 default: Rectangle()
                     
                 }
@@ -93,16 +98,36 @@ extension OnboardingView{
     }
     
     private var addNameSection: some View {
-        VStack(spacing: 40) {
+        VStack(spacing: 20) {
             Spacer()
             
             Text("What's your name?")
                 .font(.system(size: 25, weight: .bold, design: .rounded))
             
+            TextField("Your name here...", text: $name)
+                .font(.system(size: 20, weight: .bold, design: .rounded))
+                .frame(height: 50)
+                .padding(.horizontal)
+                .background(Color.red)
+                .cornerRadius(15)
+            
             Spacer()
             Spacer()
         }
-        .multilineTextAlignment(.center)
+        .padding()
+    }
+    
+    private var addAgeSection: some View {
+        VStack(spacing: 20) {
+            Spacer()
+            
+            Text("What's your age?")
+                .font(.system(size: 25, weight: .bold, design: .rounded))
+        
+            Slider(value: <#T##Binding<BinaryFloatingPoint>#>, in: <#T##ClosedRange<BinaryFloatingPoint>#>)
+            Spacer()
+            Spacer()
+        }
         .padding()
     }
 }
