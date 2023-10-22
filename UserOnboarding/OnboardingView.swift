@@ -19,9 +19,10 @@ struct OnboardingView: View {
      3 - Add Gender
      */
     
-    @State var onboardingState: Int = 2
+    @State var onboardingState: Int = 3
     @State var name: String = ""
     @State var age: Double = 50
+    @State var gender: String = ""
     
     var body: some View {
         
@@ -35,6 +36,8 @@ struct OnboardingView: View {
                     addNameSection
                 case 2:
                     addAgeSection
+                case 3:
+                    addGenderSection
                 default: Rectangle()
                     
                 }
@@ -123,13 +126,43 @@ extension OnboardingView{
             
             Text("What's your age?")
                 .font(.system(size: 25, weight: .bold, design: .rounded))
-        
+            
             Text("\(String(format: "%.0f", age))")
                 .font(.system(size: 25, weight: .bold, design: .rounded))
                 .foregroundColor(.black)
             
             Slider(value: $age, in: 18...100, step: 1)
                 .accentColor(.black)
+            
+            Spacer()
+            Spacer()
+        }
+        .padding()
+    }
+    
+    private var addGenderSection: some View {
+        VStack(spacing: 20) {
+            Spacer()
+            
+            Text("What's your gender?")
+                .font(.system(size: 25, weight: .bold, design: .rounded))
+            
+            Picker(selection: $gender,
+                   label:
+                    Text("Select a gender")
+                   .font(.system(size: 20, weight: .bold, design: .rounded))
+                   .foregroundColor(.black)
+                   .frame(height: 50)
+                   .frame(maxWidth: .infinity)
+                   .background(Color.black)
+                   .cornerRadius(15)
+                   ,
+                   content: {
+                Text("Male").tag("Male")
+                Text("Female").tag("Female")
+                Text("Non-Binary").tag("Non-Binary")
+            })
+            .pickerStyle(MenuPickerStyle())
             
             Spacer()
             Spacer()
