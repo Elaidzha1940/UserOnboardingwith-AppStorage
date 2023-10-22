@@ -22,7 +22,7 @@ struct OnboardingView: View {
     @State var onboardingState: Int = 3
     @State var name: String = ""
     @State var age: Double = 50
-    @State var gender: String = ""
+    @State var gender: String = "Male"
     
     var body: some View {
         
@@ -97,7 +97,7 @@ extension OnboardingView{
             Spacer()
         }
         .multilineTextAlignment(.center)
-        .padding()
+        .padding(30)
     }
     
     private var addNameSection: some View {
@@ -117,7 +117,7 @@ extension OnboardingView{
             Spacer()
             Spacer()
         }
-        .padding()
+        .padding(30)
     }
     
     private var addAgeSection: some View {
@@ -137,7 +137,7 @@ extension OnboardingView{
             Spacer()
             Spacer()
         }
-        .padding()
+        .padding(30)
     }
     
     private var addGenderSection: some View {
@@ -149,24 +149,25 @@ extension OnboardingView{
             
             Picker(selection: $gender,
                    label:
-                    Text(gender.count > 1 ? gender : "Select a gender")
-                   .font(.system(size: 20, weight: .bold, design: .rounded))
-                   .foregroundColor(.red)
-                   .frame(height: 50)
-                   .frame(maxWidth: .infinity)
-                   .background(Color.brown)
-                   .cornerRadius(15)
+                    Text("Select a gender")
+                .font(.system(size: 20, weight: .bold, design: .rounded))
+                .foregroundColor(.red)
+                .frame(height: 50)
+                .frame(maxWidth: .infinity)
+                .background(Color.black)
+                .cornerRadius(15)
                    ,
                    content: {
                 Text("Male").tag("Male")
                 Text("Female").tag("Female")
                 Text("Non-Binary").tag("Non-Binary")
+                
             })
-            .pickerStyle(MenuPickerStyle())
+            //.pickerStyle(MenuPickerStyle())
             
             Spacer()
             Spacer()
         }
-        .padding()
+        .padding(30)
     }
 }

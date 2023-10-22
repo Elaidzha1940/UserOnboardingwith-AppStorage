@@ -13,7 +13,7 @@ import SwiftUI
 struct UserOnboardingApp: App {
     var body: some Scene {
         WindowGroup {
-            IntroView()
+            OnboardingView()
         }
     }
 }
