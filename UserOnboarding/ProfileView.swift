@@ -33,7 +33,6 @@ struct ProfileView: View {
                 .font(.system(size: 20, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
                 .padding(.horizontal)
-                .foregroundColor(.black)
                 .frame(height: 55)
                 .frame(maxWidth: .infinity)
                 .background(Color.black)
@@ -44,7 +43,7 @@ struct ProfileView: View {
 
         }
         .font(.system(size: 20, weight: .medium, design: .rounded))
-        .foregroundColor(.black)
+        .foregroundColor(.white)
         .padding()
         .cornerRadius(15)
         .shadow(color: .black, radius: 10, x: 5 , y: 5)
@@ -54,7 +53,9 @@ struct ProfileView: View {
         currentUserName = nil
         currentUserAge = nil
         currentUserGender = nil
-        currentUserSignedIn = false
+        withAnimation(.spring()) {
+            currentUserSignedIn = false
+        }
     }
 }
 

@@ -23,9 +23,15 @@ struct IntroView: View {
                 .ignoresSafeArea()
         
                 if currentUserSignedIn{
-                    Text("Profile")
+                    ProfileView()
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .bottom),
+                            removal: .move(edge: .top)))
                 } else {
                     OnboardingView()
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .bottom),
+                            removal: .move(edge: .top)))
                 }
         }
     }
