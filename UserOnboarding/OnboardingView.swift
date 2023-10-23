@@ -38,6 +38,8 @@ struct OnboardingView: View {
     @AppStorage("age") var currentUserAge: Int?
     @AppStorage("gender") var currentUserGender: String?
     
+    @AppStorage("sign_in") var currentUserSignedIn: Bool = false
+    
     var body: some View {
         
         ZStack {
@@ -173,12 +175,12 @@ extension OnboardingView {
             Picker(selection: $gender,
                    label:
                     Text("Select a gender")
-//                .font(.system(size: 20, weight: .bold, design: .rounded))
-//                .foregroundColor(.red)
-//                .frame(height: 55)
-//                .frame(maxWidth: .infinity)
-//                .background(Color.black)
-//                .cornerRadius(15)
+                   //                .font(.system(size: 20, weight: .bold, design: .rounded))
+                   //                .foregroundColor(.red)
+                   //                .frame(height: 55)
+                   //                .frame(maxWidth: .infinity)
+                   //                .background(Color.black)
+                   //                .cornerRadius(15)
                    ,
                    content: {
                 Text("Male").tag("Male")
@@ -203,7 +205,7 @@ extension OnboardingView {
 
 // MARK: FUNCTIONS
 extension OnboardingView {
-
+    
     func handleButtonPressed() {
         // Check Inputs
         switch onboardingState {
@@ -223,11 +225,20 @@ extension OnboardingView {
         
         // Go To The Next Sectiom
         if onboardingState == 3 {
-            // sign in
+            signIn()
         } else {
             withAnimation(.spring()) {
                 onboardingState += 1
             }
+        }
+    }
+    
+    func signIn() {
+        currentUserName = name
+        currentUserAge = Int(age)
+        currentUserGender = gender
+        withAnimation(.spring()) {
+            currentUserSignedIn = true
         }
     }
     
