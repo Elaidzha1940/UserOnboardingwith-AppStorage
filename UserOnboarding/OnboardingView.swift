@@ -196,7 +196,9 @@ extension OnboardingView {
         switch onboardingState {
         case 1:
             guard name.count >= 3 else {
-                return 
+                alertTitle = "title"
+                showAlert.toggle()
+                return
             }
         default:
             break
@@ -210,5 +212,10 @@ extension OnboardingView {
                 onboardingState += 1
             }
         }
+    }
+    
+    func showAlert(title: String) {
+        alertTitle = title
+        showAlert.toggle()
     }
 }
