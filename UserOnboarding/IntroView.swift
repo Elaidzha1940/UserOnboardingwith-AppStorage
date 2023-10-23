@@ -30,8 +30,8 @@ struct IntroView: View {
                 } else {
                     OnboardingView()
                         .transition(.asymmetric(
-                            insertion: .move(edge: .bottom),
-                            removal: .move(edge: .top)))
+                            insertion: .move(edge: .top),
+                            removal: .move(edge: .bottom)))
                 }
         }
     }

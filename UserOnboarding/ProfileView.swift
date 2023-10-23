@@ -45,6 +45,7 @@ struct ProfileView: View {
         .font(.system(size: 20, weight: .medium, design: .rounded))
         .foregroundColor(.white)
         .padding()
+        .background(Color.black)
         .cornerRadius(15)
         .shadow(color: .black, radius: 10, x: 5 , y: 5)
     }
