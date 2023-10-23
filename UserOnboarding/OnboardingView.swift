@@ -48,7 +48,6 @@ struct OnboardingView: View {
                         .transition(transition)
                 default: Rectangle()
                         .foregroundColor(.red)
-                    
                 }
             }
             
@@ -187,7 +186,10 @@ extension OnboardingView {
 extension OnboardingView {
 
     func handleButtonPressed() {
+        // Check Inputs
         
+        
+        // Go To The Next Sectiom
         if onboardingState == 3 {
             // sign in
         } else {
