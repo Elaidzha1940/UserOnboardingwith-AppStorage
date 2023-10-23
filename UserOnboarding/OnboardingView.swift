@@ -196,8 +196,7 @@ extension OnboardingView {
         switch onboardingState {
         case 1:
             guard name.count >= 3 else {
-                alertTitle = "title"
-                showAlert.toggle()
+                showAlert(title: "Your name must be 3 characters long!")
                 return
             }
         default:
