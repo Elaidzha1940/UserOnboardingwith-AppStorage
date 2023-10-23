@@ -28,6 +28,9 @@ struct OnboardingView: View {
     @State var age: Double = 50
     @State var gender: String = ""
     
+    @State var alertTitle: String = ""
+    @State var showAlert: Bool = false
+    
     var body: some View {
         
         ZStack {
@@ -57,6 +60,9 @@ struct OnboardingView: View {
                 buttomButton
             }
             .padding(30)
+        }
+        .alert(isPresented: $showAlert) {
+            return Alert(title: Text(alertTitle))
         }
     }
 }
@@ -187,7 +193,14 @@ extension OnboardingView {
 
     func handleButtonPressed() {
         // Check Inputs
-        
+        switch onboardingState {
+        case 1:
+            guard name.count >= 3 else {
+                return 
+            }
+        default:
+            break
+        }
         
         // Go To The Next Sectiom
         if onboardingState == 3 {
