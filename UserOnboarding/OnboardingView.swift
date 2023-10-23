@@ -24,12 +24,19 @@ struct OnboardingView: View {
         insertion: .move(edge: .trailing),
         removal: .move(edge: .leading))
     
+    // onboarding inputs
     @State var name: String = ""
     @State var age: Double = 50
     @State var gender: String = ""
     
+    // for the alert
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
+    
+    // app storage
+    @AppStorage("name") var currentUserName: String?
+    @AppStorage("age") var currentUserAge: Int?
+    @AppStorage("gender") var currentUserGender: String?
     
     var body: some View {
         
@@ -166,12 +173,12 @@ extension OnboardingView {
             Picker(selection: $gender,
                    label:
                     Text("Select a gender")
-                .font(.system(size: 20, weight: .bold, design: .rounded))
-                .foregroundColor(.red)
-                .frame(height: 55)
-                .frame(maxWidth: .infinity)
-                .background(Color.black)
-                .cornerRadius(15)
+//                .font(.system(size: 20, weight: .bold, design: .rounded))
+//                .foregroundColor(.red)
+//                .frame(height: 55)
+//                .frame(maxWidth: .infinity)
+//                .background(Color.black)
+//                .cornerRadius(15)
                    ,
                    content: {
                 Text("Male").tag("Male")
@@ -179,7 +186,13 @@ extension OnboardingView {
                 Text("Non-Binary").tag("Non-Binary")
                 
             })
-            // .pickerStyle(<#_#>)
+            .font(.system(size: 20, weight: .bold, design: .rounded))
+            .foregroundColor(.white)
+            .frame(height: 55)
+            .frame(maxWidth: .infinity)
+            .background(Color.black)
+            .cornerRadius(15)
+            .pickerStyle(.menu)
             
             Spacer()
             Spacer()
@@ -197,6 +210,11 @@ extension OnboardingView {
         case 1:
             guard name.count >= 3 else {
                 showAlert(title: "Your name must be 3 characters long!")
+                return
+            }
+        case 3:
+            guard gender.count > 1 else {
+                showAlert(title: "Plese select a gender before moving forward!")
                 return
             }
         default:
