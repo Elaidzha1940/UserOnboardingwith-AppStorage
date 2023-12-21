@@ -2,6 +2,7 @@ User Onboarding - @AppStorage
 ==================================== 
 
  Onboarding states:
+ ------------------
      0. Welcome Screen
      1. Add Name
      2. Add Age
